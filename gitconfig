@@ -1,0 +1,28 @@
+# Ceci est le fichier de configuration personnel de Git.
+[user]
+# Veuillez adapter et décommenter les lignes suivantes :
+name = Yves Canty
+email = 46539628+ycanty@users.noreply.github.com
+
+[alias]
+co=checkout
+st=status
+br = branch
+lsi = diff --cached --name-only --diff-filter=ACDMRTXB
+lsm = ls-files -m
+lsd = ls-files -d
+lsu = ls-files --others --exclude-standard
+lsum = !git diff --name-status --diff-filter=U | cut -f2
+lgf = log --no-merges --date-order --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an - %ae>%Creset\" --abbrev-commit --date=relative
+lg = log --graph --date-order --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an - %ae>%Creset' --abbrev-commit --date=relative
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[credential]
+	helper = osxkeychain
+[core]
+	autocrlf = input
+	editor = vim -f
+[branch]
+	autoSetupMerge = always
+[pull]
+	rebase = false

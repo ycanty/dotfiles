@@ -1,0 +1,15 @@
+- clean:
+    ~/:
+        force: true
+
+- link:
+    ~/.bash_profile: bash_profile
+    ~/.bashrc: bashrc
+    ~/.gitconfig: gitconfig
+    ~/.zshrc: zshrc
+    ~/bin:
+        path: bin/
+        create: true
+
+- brewfile:
+    - Brewfile

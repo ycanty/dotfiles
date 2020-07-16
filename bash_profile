@@ -1,0 +1,33 @@
+# Docker
+alias d=docker # docker-alias
+alias dco=docker-compose # docker-compose-alias
+
+# Go
+export PATH=$(go env GOPATH)/bin:${PATH} # go-bin-path
+
+# hub
+alias git=hub # hub-alias
+
+# kubectl
+alias k=kubectl # kubectl-alias
+alias kc=kubectx # kubectx-alias
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh" && PS1='$(kube_ps1)'$PS1 # kube-ps1
+
+# krew
+export PATH=/Users/yves/.krew/bin:${PATH} # krew
+
+# pyenv
+eval "$(pyenv init -)"; eval "$(pyenv virtualenv-init -)"# pyenv-setup
+export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" # pyenv-install-fix
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+bindkey "ç" fzf-cd-widget # fzf-alt-c
+
+# Other
+for C in $(brew --prefix)/etc/bash_completion.d/*; do [[ -r "$C" ]] && . "$C"; done && [[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh" # source-bash-completion
+export PATH=${PATH}:"/Users/yves/bin" # home-bin
+alias ls='ls -FG' # colored-ls
+export LESS='-R -X -F' # configure-less
+
+[ -r ~/.bashrc ] && . ~/.bashrc # source-bashrc
