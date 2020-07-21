@@ -2,11 +2,11 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 [submodule "dotbot-brew"]
-	path = dotbot-brew
+	path = plugins/dotbot-brew
 	url = https://github.com/d12frosted/dotbot-brew.git
 [submodule "dotbot-golang"]
-	path = dotbot-golang
+	path = plugins/dotbot-golang
 	url = https://github.com/delicb/dotbot-golang
 [submodule "dotbot-vscode"]
-	path = dotbot-vscode
+	path = plugins/dotbot-vscode
 	url = https://github.com/hujianxin/dotbot-vscode

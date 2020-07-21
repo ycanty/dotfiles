@@ -10,10 +10,15 @@ cd ~
 git clone --recursive https://github.com/ycanty/dotfiles dotfiles
 ```
 
+## Design
+
+Dotbot plugins submodules are installed in the plugins subdirectory and
+auto-discovered by the install script.
+
+
 ## TODO
 
 * setup multi-machine
-* auto-discover plugins
 
 * Install vscode plugins
 * Install intellij plugins (write a dotbot plugin?)

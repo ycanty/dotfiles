@@ -8,11 +8,22 @@ DOTBOT_DIR="dotbot"
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+
+function discover_plugins() {
+    local plugins=""
+    while read dir
+    do
+        plugins="${plugins} --plugin-dir=plugins/${dir}"
+    done <<< "$(ls plugins)"
+    echo ${plugins}
+}
+
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
-git submodule update --init --recursive "dotbot-vscode"
+git submodule update --init --recursive "plugins"
 
+plugin_opts=$(discover_plugins)
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" \
---plugin-dir=dotbot-brew --plugin-dir=dotbot-golang --plugin-dir=dotbot-vscode \
+${plugin_opts} \
 "${@}"
