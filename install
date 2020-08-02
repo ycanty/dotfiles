@@ -11,6 +11,15 @@ DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 export BASEDIR
 
+function print_usage() {
+cat <<EOF
+Usage: $0 {-p profile | -c config [...]}
+
+Available profiles:
+EOF
+    ls -1 ${PROFILES_DIR}
+}
+
 function discover_plugins() {
     local plugins=""
     while read dir
@@ -25,21 +34,47 @@ git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 git submodule update --init --recursive "${PLUGINS_DIR}"
 
-PROFILE=$1
-PROFILE_FILE=${PROFILES_DIR}/${PROFILE}
+while [[ $# -gt 0 ]]
+do
+    cmd="$1"
+    case "$cmd" in
+        (-h|--help)
+            print_usage
+            exit 0
+            ;;
+        (-p|--profile)
+            shift
+            PROFILE=$1
+            shift
+            ;;
+        (-c|--config)
+            shift
+            CONFIGS+=" $1"
+            shift
+            ;;
+        (*)
+            print_usage
+            exit 0
+            ;;
+    esac
+done
 
-if [[ ! -f ${PROFILE_FILE} ]]
+if [[ -n ${PROFILE} ]]
 then
-    PROFILES=$(ls -1 ${PROFILES_DIR})
-    echo -e "Invalid profile: '${PROFILE}'.  Available profiles:\n${PROFILES}" 1>&2
-    exit 1
+    PROFILE_FILE=${PROFILES_DIR}/${PROFILE}
+
+    if [[ ! -f ${PROFILE_FILE} ]]
+    then
+        echo "Invalid profile: ${PROFILE_FILE}"
+        echo
+        print_usage
+        exit 1
+    fi
+
+    while IFS= read -r config; do
+        CONFIGS+=" ${config}"
+    done < "${PROFILE_FILE}"
 fi
-
-while IFS= read -r config; do
-    CONFIGS+=" ${config}"
-done < "${PROFILE_FILE}"
-
-shift
 
 plugin_opts=$(discover_plugins)
 

@@ -1,7 +1,15 @@
 # Dotfiles
 
+My dotfiles.
+
 Using [dotbot](https://github.com/anishathalye/dotbot) with some
 [Dotbot plugins](https://github.com/anishathalye/dotbot/wiki/Plugins)
+
+Additions over vanilla dotbot:
+
+* Customized install script that supports multi-machine profiles and
+  auto-discovers and configures dotbot plugins.
+* Ability to run ansible to handle more complex configuration steps.
 
 ## Installation
 
@@ -14,8 +22,7 @@ git clone --recursive https://github.com/ycanty/dotfiles
 
 ```bash
 cd ~/dotfiles
-git submodule update --remote dotbot
-git submodule update --remote plugins/*
+git submodule update --remote dotbot plugins/*
 git status
 # if there are changes:
 git add .
@@ -26,8 +33,9 @@ git commit -m "Upgraded dotbot and plugins"
 
 ```bash
 cd ~/dotfiles
-./install # lists available profiles
-./install <profile-name>
+./install --help
+./install --profile <profile-name>
+./install --config <config-name> --config <another-name> [...]
 ```
 
 ## Design
@@ -49,8 +57,11 @@ install   # the main install script
 * setup .ssh keys (get private key using lpass)
 * setup starship
 * reorganize bin/ scripts
+* Setup macos defaults (e.g. https://www.defaults-write.com)
 
 ## References
+
+The following provided me the inspiration for this project:
 
 * https://www.twilio.com/blog/using-dotfiles-productivity-bootstrap-systems
 * https://driesvints.com/blog/getting-started-with-dotfiles/
@@ -68,12 +79,7 @@ https://www.gnu.org/software/stow/
 https://dotfiles.github.io
 https://github.com/technicalpickles/homesick
 https://github.com/thoughtbot/rcm
-
-
 https://starship.rs
-
 https://asdf-vm.com/#/
-
 https://www.defaults-write.com
-
 https://github.com/lastpass/lastpass-cli
