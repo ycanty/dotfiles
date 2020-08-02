@@ -1,0 +1,2 @@
+# hub
+alias git=hub

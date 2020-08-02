@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Displays an alert when the github ci build is done on the given branch for the current git repository
+
+function usage() {
+    cat<<EOF
+    Usage: $0 [commit]
+EOF
+}
+
+function alert() {
+    local status
+    status=$(hub ci-status ${COMMIT})
+
+    [[ $? == 1 ]] && return 1
+
+    while [[ "${status}" == "pending" || "${status}" == "no status" ]]
+    do
+        sleep 30
+        status=$(hub ci-status ${COMMIT})
+        [[ $? == 1 ]] && return 1
+    done
+
+    osascript -e "display alert \"Build done\" message \"Repo: ${REPO}\nCommit: ${COMMIT}\nStatus: ${status}\""
+}
+
+COMMIT=$1
+
+test -z "${COMMIT}" && COMMIT="origin/master"
+
+REPO=$(basename $(git rev-parse --show-toplevel 2> /dev/null) 2> /dev/null)
+
+test -z "${REPO}" && echo "Not in a git repo" && exit 1
+
+hub sync
+alert

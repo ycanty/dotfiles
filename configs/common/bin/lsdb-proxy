@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+DEPLOYMENT_ENV=$(kubectl deployment env)
+
+gcloud config set project gannett-sweetiq-${DEPLOYMENT_ENV}
+
+gcloud auth activate-service-account --key-file=<(vault read -field=value secret/sweetiq/listings/${DEPLOYMENT_ENV}/service-account)
+
+cloud_sql_proxy -instances=gannett-sweetiq-${DEPLOYMENT_ENV}:us-east4:sweetiq-listing-service-${DEPLOYMENT_ENV}-east-pgsql=tcp:5432

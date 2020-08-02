@@ -7,25 +7,44 @@ Using [dotbot](https://github.com/anishathalye/dotbot) with some
 
 ```bash
 cd ~
-git clone --recursive https://github.com/ycanty/dotfiles dotfiles
+git clone --recursive https://github.com/ycanty/dotfiles
+```
+
+## Upgrade
+
+```bash
+cd ~/dotfiles
+git submodule update --remote dotbot
+git submodule update --remote plugins
+```
+
+## Usage
+
+```bash
+cd ~/dotfiles
+./install # lists available profiles
+./install <profile-name>
 ```
 
 ## Design
 
-Dotbot plugins submodules are installed in the plugins subdirectory and
-auto-discovered by the install script.
-
+```
+ansible/  # ansible config to run ansible shell step
+configs/  # dotfile configurations
+dotbot/   # dotbot tool, as a git submodule
+plugins/  # dotbot plugins.  Content auto-discovered by install script
+profiles/ # configuration profiles.  Lists configs to install
+install   # the main install script
+```
 
 ## TODO
-
-* setup multi-machine
 
 * Install vscode plugins
 * Install intellij plugins (write a dotbot plugin?)
 * setup duckdns config (get token using lpass)
 * setup .ssh keys (get private key using lpass)
-
-* move a simplified ansible installer here
+* setup starship
+* reorganize bin/ scripts
 
 ## References
 

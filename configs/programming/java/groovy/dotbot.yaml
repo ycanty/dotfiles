@@ -1,0 +1,5 @@
+- brewfile:
+    - "Brewfile"
+
+- link:
+    ~/.zsh/profiles/groovy.zsh: groovy.zsh

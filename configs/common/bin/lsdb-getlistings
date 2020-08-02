@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Listing service API doc: https://github.com/getmelisted/listing-service/tree/master/doc/api
+
+function usage() {
+    cat<<EOF
+    $0 <location_id> <directory>
+EOF
+}
+
+API_KEY=$(vault read -field=x-api-key secret/sweetiq/listings/apigee/dev-team)
+LOC_ID=$1
+DIR=$2
+
+if [[ "${DIR}" == "fs" ]]
+then
+    DIR="api.foursquare.com"
+elif [[ "${DIR}" == "gmb" ]]
+then
+    DIR="business.google.com"
+fi
+
+if [[ -z "${LOC_ID}" ]]
+then
+    usage
+    exit 1
+fi
+
+if [[ -z "${API_KEY}" ]]
+then
+    echo "Could not get API_KEY"
+    exit 1
+fi
+
+if [[ -z "${DIR}" ]]
+then
+    BODY=$(cat <<EOF
+{
+    "locIds": ["${LOC_ID}"]
+}
+EOF
+    )
+else
+    BODY=$(cat <<EOF
+{
+    "locIds": ["${LOC_ID}"],
+    "dir": ["${DIR}"]
+}
+EOF
+    )
+fi
+
+curl --silent -X POST \
+  https://apis.sweetiq.com/listing-service/v1/getListingsWithLocation \
+  -H "x-api-key: ${API_KEY}" \
+  -d "${BODY}" | jq .

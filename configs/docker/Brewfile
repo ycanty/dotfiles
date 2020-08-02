@@ -1,0 +1,8 @@
+cask "docker"
+
+
+brew "docker-completion"
+brew "docker-compose-completion"
+
+brew "ctop"
+brew "lazydocker"

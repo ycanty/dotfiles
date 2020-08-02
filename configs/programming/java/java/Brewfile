@@ -1,0 +1,10 @@
+tap "adoptopenjdk/openjdk"
+
+brew "adoptopenjdk8"
+# brew "java"
+
+brew "gradle"
+cask "qlgradle"
+
+brew "maven"
+brew "maven-completion"

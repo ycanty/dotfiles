@@ -1,0 +1,29 @@
+- brewfile:
+    - Brewfile
+
+- create:
+    - ~/.zsh/profiles
+
+- shell:
+    - command: ${BASEDIR}/ansible/run-ansible.sh
+      stdout: true
+      stderr: true
+
+- link:
+    ~/.zshrc: zshrc
+
+# Changing shell: already done in ansible script.
+# Note the way to query directory service to reliably get the current default shell.
+# Because SHELL env. var. is set to the current shell, not necessarily the default one.
+#
+# - shell:
+#     - command: |
+#         set -e
+#         shell=$(dscl -q . -read $HOME UserShell | sed -e 's/UserShell: //')
+
+#         if [[ "${shell}" != "/usr/local/bin/zsh" ]]
+#         then
+#             chsh -s /usr/local/bin/zsh
+#         fi
+#       stdout: true
+#       stderr: true

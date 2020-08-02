@@ -1,0 +1,5 @@
+- brewfile:
+    - "Brewfile"
+
+- link:
+    ~/.gitconfig: gitconfig

@@ -1,0 +1,17 @@
+- brewfile:
+    - "Brewfile"
+
+- link:
+    ~/.zsh/profiles/k8s.zsh: k8s.zsh
+    ~/.kube/setup-kubeconfig.sh: setup-kubeconfig.sh
+
+# TODO Create duckdns config from lastpass
+# ~/.duckdns
+# DOMAIN=
+# TOKEN=
+
+# TODO Enable when configuration is OK
+# - shell:
+#     - command: /usr/local/bin/brew services start duckdns
+#       stdout: true
+#       stderr: true

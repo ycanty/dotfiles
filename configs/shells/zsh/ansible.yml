@@ -1,0 +1,47 @@
+- hosts: localhost
+  tasks:
+    - name: Add zsh to /etc/shells
+      lineinfile:
+        path: "/etc/shells"
+        line: "/usr/local/bin/zsh"
+        state: present
+        create: yes
+      become: yes
+      become_user: "root"
+
+    - name: Change user's default shell to brew's zsh
+      user:
+        name: "{{ lookup('env', 'USER') }}"
+        shell: /usr/local/bin/zsh
+      become: yes
+      become_user: "root"
+
+    - name: Download oh-my-zsh installation script
+      get_url:
+        url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+        dest: /usr/local/bin/zsh_install.sh
+        mode: ugo+x
+      become: yes
+      become_user: "root"
+
+    - name: Run oh-my-zsh installer
+      shell: zsh_install.sh "" --unattended
+      args:
+        creates: "{{ lookup('env', 'HOME') }}/.oh-my-zsh"
+
+    - name: Determine brew prefix path
+      shell: brew --prefix
+      register: brew_prefix
+      changed_when: False
+
+    - name: Fix permissions on {{ brew_prefix.stdout }}/share
+      file:
+        path: "{{ brew_prefix.stdout }}/share"
+        mode: go-w
+
+    # This forces re-creating the completion cache.
+    # Useful if completion doesn't work for some commands.
+    - name: Delete zcompdump file
+      file:
+        path: "{{ lookup('env', 'ZSH_COMPDUMP') }}"
+        state: absent

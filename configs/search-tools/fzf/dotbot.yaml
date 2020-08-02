@@ -1,0 +1,10 @@
+- brewfile:
+    - "Brewfile"
+
+- shell:
+    - command: $(brew --prefix)/opt/fzf/install --all
+      stdout: true
+      stderr: true
+
+- link:
+    ~/.zsh/profiles/fzf.zsh: fzf.zsh

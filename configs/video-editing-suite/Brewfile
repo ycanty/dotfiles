@@ -1,0 +1,10 @@
+brew "handbrake"
+cask "handbrake"
+brew "ffmpeg"
+brew "youtube-dl"
+cask "subler"
+
+# To transfer videos from the Oculus Quest
+cask "android-file-transfer"
+
+mas "iMovie", id: 408981434

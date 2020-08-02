@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Generate release notes between 2 commits (excluding the first commit)
+
+function usage() {
+    cat<<EOF
+Usage:
+    git relnotes <commit> <commit>
+EOF
+}
+
+if [[ $# -lt 2 ]]
+then
+    usage
+    exit 1
+fi
+
+COMMIT_1=$1
+COMMIT_2=$2
+
+git log --no-merges --date-order --pretty=format:"* %s (%an)" ${COMMIT_1}...${COMMIT_2}

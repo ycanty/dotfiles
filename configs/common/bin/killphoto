@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Force kill the photos app services that cause the discrete graphics card to be used
+
+sudo killall -9 com.apple.photos.ImageConversionService
+sudo killall -9 com.apple.photostream-agent.ImageConversionService

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# MAC address of mac to wake up.  e.g. AA:34:A1:18:73:B4
+mac_address=$1
+
+# IP address or hostname of mac to wake up
+mac_host=$2
+
+# wakeonlan installed by homebrew
+# Needs MAC address of mac to wakeup
+# Mac needs to have power saving option "wake over network" enabled
+wakeonlan ${mac_address}
+
+echo -n "Waiting for machine to be up"
+while ! ping -c 1 -W 1 ${mac_host} > /dev/null 2>&1
+do
+    echo -n "."
+    sleep 1
+done
+
+echo ""
+echo "${mac_host} is up!"

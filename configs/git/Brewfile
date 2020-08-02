@@ -1,0 +1,6 @@
+tap "github/gh"
+
+brew "git"
+brew "hub"
+brew "github/gh/gh"
+brew "diff-so-fancy"

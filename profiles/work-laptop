@@ -1,0 +1,11 @@
+common
+shells/zsh
+docker
+k8s
+programming/go
+programming/python
+programming/java/groovy
+search-tools/fzf
+git
+editors/intellij
+editors/vscode

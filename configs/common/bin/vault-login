@@ -1,0 +1,4 @@
+#!/bin/bash
+
+vault login --method=okta username=${USER}
+

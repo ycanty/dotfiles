@@ -1,0 +1,19 @@
+- clean:
+    ~/:
+        force: true
+
+- link:
+    ~/.zsh/profiles/common.zsh: common.zsh
+    ~/bin:
+        path: bin/
+        create: true
+
+- brewfile:
+    - "Brewfile"
+
+- shell:
+    - command: ${BASEDIR}/ansible/run-ansible.sh
+      stdout: true
+      stderr: true
+
+# TODO Setup ssh keys from lastpass

@@ -1,0 +1,15 @@
+- hosts: localhost
+  tasks:
+    - name: Add modern bash to /etc/shells
+      lineinfile:
+        path: "/etc/shells"
+        line: "/usr/local/bin/bash"
+        state: present
+        create: yes
+      become: yes
+      become_user: "root"
+
+    - name: Install complete-alias bash utility
+      get_url:
+        url: https://raw.githubusercontent.com/cykerway/complete-alias/master/complete_alias
+        dest: "{{ lookup('env', 'HOME') }}/.bash_completion"

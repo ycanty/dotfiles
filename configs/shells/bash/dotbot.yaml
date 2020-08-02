@@ -1,0 +1,11 @@
+- brewfile:
+    - Brewfile
+
+- shell:
+    - command: ${BASEDIR}/ansible/run-ansible.sh
+      stdout: true
+      stderr: true
+
+- link:
+    ~/.bash_profile: bash_profile
+    ~/.bashrc: bashrc

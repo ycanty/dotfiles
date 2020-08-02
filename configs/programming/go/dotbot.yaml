@@ -1,0 +1,14 @@
+- brewfile:
+    - "Brewfile"
+
+- link:
+    ~/.zsh/profiles/go.zsh: go.zsh
+
+# To install extra go tools:
+# - go
+#   - github.com/delicb/cliware
+#   -
+#     package: github.com/delicb/cliware-middlewares
+#     flags: [-v, -u]
+#     stdout: true
+#     stderr: true

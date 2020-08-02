@@ -1,0 +1,3 @@
+brew "bash-completion@2"
+brew "zsh"
+brew "zsh-completions"

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+function download() {
+    for file in "$@"
+    do
+        youtube-dl -x --restrict-filenames --audio-format mp3 -o "%(title)s.%(ext)s" "$@"
+    done
+}
+
+youtube-dl -U
+
+if [ -z "$1" ]
+then
+    # no args, so read list of files from stdin
+    while read line
+    do
+        download "$line"
+    done < /dev/stdin 
+else
+    # args given, download these files
+    download "$@"
+fi

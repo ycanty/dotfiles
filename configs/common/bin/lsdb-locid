@@ -1,0 +1,37 @@
+#!/bin/bash
+
+function usage() {
+    cat<<EOF
+    $0 <external_id>
+EOF
+}
+
+set -e
+
+EXTERNAL_ID=$1
+DEPLOYMENT_ENV=$(kubectl deployment env)
+
+if [[ -z "${EXTERNAL_ID}" ]]
+then
+    usage
+    exit 1
+fi
+
+export PGPASSWORD=$(vault read -field=password secret/sweetiq/listings/${DEPLOYMENT_ENV}/database/postgres-credentials)
+
+if [[ -z "${PGPASSWORD}" ]]
+then
+    echo "Could not get db password"
+    exit 1
+fi
+
+psql -h localhost -p 5432 -U admin -d listing_service <<sql
+select extlis_external_id, loc_id, loc_name, listra_status, listra_directory
+--        loc_blob -> 'Geo' ->> 'longitude' as longitude, loc_blob -> 'Geo' ->> 'latitude' as latitude
+from latest_listing_transition
+         left join location on (listra_location_id = loc_id and listra_location_version = loc_version)
+         left join external_listing on (listra_transition_id = extlis_transition_id and listra_location_id = extlis_location_id and listra_location_version = extlis_location_version and listra_directory = extlis_directory)
+where loc_id = '${EXTERNAL_ID}';
+-- where loc_name LIKE '${EXTERNAL_ID}';
+-- where cast(loc_id as varchar(35)) LIKE '%${EXTERNAL_ID}%';
+sql

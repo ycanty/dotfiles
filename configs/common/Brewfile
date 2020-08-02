@@ -1,0 +1,53 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+
+# required by dotfiles installation/setup tools
+brew "ansible"
+brew "mas"
+
+# terminal enhancements
+brew "starship"
+cask "iterm2"
+
+# password management
+brew "lastpass-cli"
+cask "lastpass"
+
+# File search
+brew "fd"
+brew "ripgrep"
+
+# http
+brew "httpie"
+brew "wget"
+brew "curl"
+
+# File cleanup
+brew "ncdu"
+cask "appcleaner"
+
+# System utilities
+cask "gfxcardstatus"
+cask "keepingyouawake"
+brew "glances"
+brew "htop"
+brew "watch"
+brew "tldr"
+brew "tree"
+brew "bat"
+# brew "colordiff"
+# brew "z"
+
+# Touch bar utilities
+# cask "touchswitcher"
+
+# text/xml
+brew "xml-coreutils"
+brew "xmlstarlet"
+brew "libxml2"
+
+# browsers
+cask "google-chrome"
+cask "brave-browser"

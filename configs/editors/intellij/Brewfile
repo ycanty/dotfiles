@@ -1,0 +1,4 @@
+cask "intellij-idea"
+
+# Free edition
+# cask "intellij-idea-ce"

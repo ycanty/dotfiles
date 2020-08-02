@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Generate release notes of what's new since what is already released on the current k8s context
+
+APPNAME=$(git repo-name)
+NEW_VERSION=$(git reflog -1 HEAD --format="%h")
+OLD_VERSION=$(kubectl app version ${APPNAME})
+
+echo "\`${APPNAME}\` version \`${NEW_VERSION}\` is released (previous version: \`${OLD_VERSION}\`)"
+echo
+echo "What's new:"
+echo ""
+git relnotes ${OLD_VERSION} ${NEW_VERSION} | sed -E -e 's,\[(DA-[0-9]+)\],\[\1\](https://jira.gannett.com/browse/\1),'

@@ -1,0 +1,16 @@
+- brewfile:
+    - "Brewfile"
+
+- create:
+    - ~/.kube/configs
+
+- link:
+    ~/.zsh/profiles/k8s.zsh: k8s.zsh
+    ~/.kube/setup-kubeconfig.sh: setup-kubeconfig.sh
+
+# To install kubectl krew plugins:
+# - shell:
+#     - command: kubectl krew update
+#       stdout: true
+#       stderr: true
+#     - command: kubectl krew install <plugin>

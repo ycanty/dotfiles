@@ -1,0 +1,10 @@
+- brewfile:
+    - "Brewfile"
+
+- link:
+   ~/.zsh/profiles/docker.zsh: docker.zsh
+
+# - shell:
+#     - command: ${BASEDIR}/ansible/run-ansible.sh
+#       stdout: true
+#       stderr: true

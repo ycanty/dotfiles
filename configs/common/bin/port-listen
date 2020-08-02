@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# https://stackoverflow.com/questions/24198456/issue-with-netcat-timeout
+
+ip=$1
+ssh_port=$2
+
+# -- use NMAP, if not avail. go with nc --
+if command -v nmap | grep -iq nmap ; then
+    nmap ${ip} -PN -p ${ssh_port} | grep -iq "open"
+    res=$?
+elif command -v nc | grep -iq nc ; then
+    # -- run command if fails to complete in 3 secs assume host unreachable --
+    ( nc -z ${ip} ${ssh_port} > /dev/null 2>&1 ) & pid=$!
+    ( sleep 1 && kill -HUP $pid ) 2>/dev/null & watcher=$!
+    if wait $pid 2>/dev/null; then
+        pkill -HUP -P $watcher
+        wait $watcher
+        # -- command finished (we have connection) --
+        res=0
+    else
+        # -- command failed (no connection) --
+        res=1
+    fi
+else
+    echo "Error: You must have NC or NMAP installed"
+fi
+
+if [[ ${res} -lt 1 ]] ;then
+    echo "SUCCESS connect to ${ip} port ${ssh_port}"
+    exit 0
+else
+    echo "FAILED connect to ${ip} port ${ssh_port}"
+    exit 1
+fi

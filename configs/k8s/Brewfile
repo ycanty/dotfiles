@@ -1,0 +1,6 @@
+brew "helm"
+brew "kubernetes-cli"
+brew "kube-ps1"
+brew "kubectx"
+
+# Note: kubectl is part of docker desktop

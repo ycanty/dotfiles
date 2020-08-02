@@ -2,13 +2,14 @@
 
 set -e
 
-CONFIG="install.conf.yaml"
+CONFIG_DIR="configs"
 DOTBOT_DIR="dotbot"
 PLUGINS_DIR="plugins"
+PROFILES_DIR="profiles"
 
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
+export BASEDIR
 
 function discover_plugins() {
     local plugins=""
@@ -24,7 +25,31 @@ git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 git submodule update --init --recursive "${PLUGINS_DIR}"
 
+PROFILE=$1
+PROFILE_FILE=${PROFILES_DIR}/${PROFILE}
+
+if [[ ! -f ${PROFILE_FILE} ]]
+then
+    PROFILES=$(ls -1 ${PROFILES_DIR})
+    echo -e "Invalid profile: '${PROFILE}'.  Available profiles:\n${PROFILES}" 1>&2
+    exit 1
+fi
+
+while IFS= read -r config; do
+    CONFIGS+=" ${config}"
+done < "${PROFILE_FILE}"
+
+shift
+
 plugin_opts=$(discover_plugins)
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" \
-${plugin_opts} \
-"${@}"
+
+echo -n "root password:"
+read -s PW
+export PW
+
+for config in ${CONFIGS} ${@}; do
+    echo -e "\n=== Configure $config ==="
+    "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" --verbose -d "${CONFIG_DIR}/${config}" -c "${CONFIG_DIR}/${config}/dotbot.yaml" \
+    ${plugin_opts} \
+    "${@}"
+done

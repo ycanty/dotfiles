@@ -1,0 +1,62 @@
+#!/bin/bash
+# Determine the deployed version of applications on the current k8s context.
+
+function print_usage() {
+    cat<<EOF
+Usage: $0 [APP]
+
+Determines the version of apps deployed on the currently active k8s cluster context.
+
+APP: optional k8s application name deployed on the cluster e.g. adapter-gmb
+     When specified, will print the version of this app only.
+     When not specified, prints the version of every app found on the cluster.
+
+Example:
+
+kubectl config use-context sweetiq-adapters-production-east-admin
+$0
+$0 adapter-gmb
+
+EOF
+}
+
+function main() {
+    local apps=$@
+    local cluster=$(kubectl config current-context)
+
+    local verbose=0
+
+    if [ -z "${apps}" ]
+    then
+        apps=$(kubectl get pod  -o jsonpath='{.items[*].metadata.labels.app}' | uniq)
+        verbose=1
+    fi
+
+    for app in ${apps}
+    do
+        local deployed_commit=$(kubectl get pod -l app="${app}" -o jsonpath='{.items[*].spec.containers[*].image}' | tr -s '[[:space:]]' '\n' | uniq | sed -e 's/.*://' | cut -d'-' -f 2)
+
+        if [[ -z "${deployed_commit}" ]]
+        then
+            deployed_commit="<unknown>"
+        fi
+
+        if [ "${verbose}" == 1 ]
+        then
+            echo "${app} ${deployed_commit}"
+        else
+            echo ${deployed_commit}
+        fi
+    done | column -t
+}
+
+for cmd in "$@"; do
+    case "$cmd" in
+        (-h|--help)
+            print_usage
+            exit 0
+            ;;
+    esac
+done
+
+main "$@"

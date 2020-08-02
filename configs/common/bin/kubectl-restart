@@ -1,0 +1,50 @@
+#!/bin/bash
+# Restart a deployment by scaling down its replicas to 0 then scaling back up.
+
+function print_usage() {
+    cat<<EOF
+Usage: $0 [deployment]
+
+Restart a deployment by scaling down its replicas to 0 then scaling back up.
+
+deployment: The name of a k8s deployment resource
+
+EOF
+}
+
+function print_err() {
+    local msg="$*"
+
+    echo ${msg} 2>&1
+}
+
+function get_replicas() {
+    local deployment="$1"
+
+    kubectl get deployment "${deployment}" -o jsonpath='{.status.replicas}'
+}
+
+function restart() {
+    local deployment=$1
+
+    if [ -z "${deployment}" ]
+    then
+        print_err "No deployment specified"
+        return 1
+    fi
+
+    local replicas=$(get_replicas "${deployment}")
+
+    kubectl scale deployment "${deployment}" --replicas=0 && kubectl scale deployment "${deployment}" --replicas="${replicas}"
+}
+
+for cmd in "$@"; do
+    case "$cmd" in
+        (-h|--help)
+            print_usage
+            exit 0
+            ;;
+    esac
+done
+
+restart "$*"

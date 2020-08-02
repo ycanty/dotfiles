@@ -1,0 +1,3 @@
+cask "musicbrainz-picard"
+
+mas "GarageBand", id: 682658836

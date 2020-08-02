@@ -1,0 +1,3 @@
+tap "jzelinskie/duckdns"
+
+brew "duckdns"

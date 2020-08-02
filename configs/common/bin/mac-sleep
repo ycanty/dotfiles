@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# http://osxdaily.com/2012/07/22/sleep-a-mac-from-the-command-line/
+
+# host name or IP address of the remote mac to put to sleep
+mac_host=$1
+
+ssh -o BatchMode=yes ${mac_host} "osascript -e 'tell application \"system events\" to sleep'"

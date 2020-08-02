@@ -1,0 +1,4 @@
+#!/bin/bash
+
+youtube-dl -U
+youtube-dl -x -k --restrict-filenames --audio-format mp3 -o "%(title)s.%(ext)s" "$@"

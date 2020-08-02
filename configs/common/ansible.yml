@@ -1,0 +1,6 @@
+- hosts: localhost
+  tasks:
+    - name: Install SF Mono font for all apps
+      copy:
+        src: /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/
+        dest: /Library/Fonts/

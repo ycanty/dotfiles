@@ -1,0 +1,24 @@
+#!/bin/bash
+# Download and run the gannett k8s context setup script
+
+function print_usage() {
+    cat<<EOF
+Usage: $0 [-h]
+EOF
+}
+
+function main() {
+    build-kubeconfig.sh secret/sweetiq/adapter/gke/
+    build-kubeconfig.sh secret/sweetiq/gke/
+}
+
+for cmd in "$@"; do
+    case "$cmd" in
+        (-h|--help)
+            print_usage
+            exit 0
+            ;;
+    esac
+done
+
+main "$@"
