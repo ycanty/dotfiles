@@ -15,7 +15,11 @@ git clone --recursive https://github.com/ycanty/dotfiles
 ```bash
 cd ~/dotfiles
 git submodule update --remote dotbot
-git submodule update --remote plugins
+git submodule update --remote plugins/*
+git status
+# if there are changes:
+git add .
+git commit -m "Upgraded dotbot and plugins"
 ```
 
 ## Usage
