@@ -2,11 +2,12 @@
     ~/:
         force: true
 
+- create:
+    - ~/bin
+
 - link:
     ~/.zsh/profiles/common.zsh: common.zsh
-    ~/bin:
-        path: bin/
-        create: true
+    ~/bin/common-bin: bin
 
 - brewfile:
     - "Brewfile"

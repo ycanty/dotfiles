@@ -56,7 +56,6 @@ install   # the main install script
 * setup duckdns config (get token using lpass)
 * setup .ssh keys (get private key using lpass)
 * setup starship
-* reorganize bin/ scripts
 * Setup macos defaults (e.g. https://www.defaults-write.com)
 
 ## References

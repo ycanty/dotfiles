@@ -1,2 +1,6 @@
 - brewfile:
     - "Brewfile"
+
+- link:
+    ~/.zsh/profiles/video-editing-suite.zsh: video-editing-suite.zsh
+    ~/bin/video-editing-suite-bin: bin

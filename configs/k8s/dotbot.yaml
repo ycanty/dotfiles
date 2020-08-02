@@ -7,6 +7,7 @@
 - link:
     ~/.zsh/profiles/k8s.zsh: k8s.zsh
     ~/.kube/setup-kubeconfig.sh: setup-kubeconfig.sh
+    ~/bin/k8s-bin: bin
 
 # To install kubectl krew plugins:
 # - shell:

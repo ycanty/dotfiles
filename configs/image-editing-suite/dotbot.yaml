@@ -1,2 +1,6 @@
 - brewfile:
     - "Brewfile"
+
+- link:
+    ~/.zsh/profiles/image-editing-suite.zsh: image-editing-suite.zsh
+    ~/bin/image-editing-suite-bin: bin
