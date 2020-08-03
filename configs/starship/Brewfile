@@ -1,0 +1,7 @@
+tap "homebrew/cask-fonts"
+
+brew "starship"
+
+cask "font-roboto-mono-nerd-font"
+cask "font-hack-nerd-font"
+cask "font-dejavu-sans-mono-nerd-font"

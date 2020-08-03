@@ -53,9 +53,9 @@ install   # the main install script
 
 * Install vscode plugins
 * Install intellij plugins (write a dotbot plugin?)
+* Configure iterm2
 * setup duckdns config (get token using lpass)
 * setup .ssh keys (get private key using lpass)
-* setup starship
 * Setup macos defaults (e.g. https://www.defaults-write.com)
 
 ## References

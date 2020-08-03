@@ -8,7 +8,6 @@ brew "ansible"
 brew "mas"
 
 # terminal enhancements
-brew "starship"
 cask "iterm2"
 
 # password management

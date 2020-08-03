@@ -1,5 +1,6 @@
 common
 shells/zsh
+starship
 docker
 k8s
 programming/go
