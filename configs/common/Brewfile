@@ -25,6 +25,7 @@ brew "curl"
 
 # File cleanup
 brew "ncdu"
+brew "duc"
 cask "appcleaner"
 
 # System utilities
@@ -32,12 +33,16 @@ cask "gfxcardstatus"
 cask "keepingyouawake"
 brew "glances"
 brew "htop"
+# brew "zenith"
 brew "watch"
 brew "tldr"
 brew "tree"
 brew "bat"
+brew "procs"
+brew "bandwhich"
 # brew "colordiff"
 # brew "z"
+# brew "zoxide"
 
 # Touch bar utilities
 # cask "touchswitcher"
@@ -50,3 +55,11 @@ brew "libxml2"
 # browsers
 cask "google-chrome"
 cask "brave-browser"
+
+# Benchmarking
+# brew "hyperfine"
+
+# Regex generator
+brew "grex"
+
+# Ref: https://zaiste.net/posts/shell-commands-rust/
