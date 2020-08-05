@@ -2,10 +2,10 @@
     ~/:
         force: true
 
+- link:
+    ~/.gitconfig.extra:
+      path: gitconfig.extra
+      relink: true
+
 - brewfile:
     - "Brewfile"
-
-- shell:
-    - command: git config --global user.email ycanty@coveo.com
-      stdout: true
-      stderr: true
