@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/dotbot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/dotbot/lib/pyyaml" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/plugins/dotbot-brew" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/plugins/dotbot-golang" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/plugins/dotbot-vscode" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/plugins/dotbot-vscode/lib/whichcraft" vcs="Git" />
+  </component>
+</project>
