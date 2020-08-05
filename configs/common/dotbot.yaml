@@ -4,6 +4,7 @@
 
 - create:
     - ~/bin
+    - ~/.zsh/profiles
 
 - link:
     ~/.zsh/profiles/common.zsh: common.zsh
