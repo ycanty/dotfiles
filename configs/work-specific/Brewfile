@@ -1,0 +1,9 @@
+brew "terraform"
+brew "terraform_landscape"
+brew "terragrunt"
+
+brew "awscli"
+
+brew "powershell"
+
+brew "rectangle"

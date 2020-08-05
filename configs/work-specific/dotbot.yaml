@@ -1,0 +1,11 @@
+- clean:
+    ~/:
+        force: true
+
+- brewfile:
+    - "Brewfile"
+
+- shell:
+    - command: git config --global user.email ycanty@coveo.com
+      stdout: true
+      stderr: true
