@@ -22,11 +22,11 @@ EOF
 
 function discover_plugins() {
     local plugins=""
-    while read dir
+    while read -r dir
     do
         plugins="${plugins} --plugin-dir=${PLUGINS_DIR}/${dir}"
     done <<< "$(ls ${PLUGINS_DIR})"
-    echo ${plugins}
+    echo "${plugins}"
 }
 
 if [[ $# -eq 0 ]]
@@ -85,12 +85,12 @@ fi
 plugin_opts=$(discover_plugins)
 
 echo -n "root password:"
-read -s PW
+read -r -s PW
 export PW
 
-for config in ${CONFIGS} ${@}; do
+for config in ${CONFIGS} "${@}"; do
     echo -e "\n=== Configure $config ==="
     "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" --verbose -d "${CONFIG_DIR}/${config}" -c "${CONFIG_DIR}/${config}/dotbot.yaml" \
-    ${plugin_opts} \
+    "${plugin_opts}" \
     "${@}"
 done
