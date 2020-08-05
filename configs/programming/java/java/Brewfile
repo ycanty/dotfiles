@@ -1,5 +1,7 @@
 tap "adoptopenjdk/openjdk"
 
+cask_args force: true
+
 brew "adoptopenjdk8"
 # brew "java"
 

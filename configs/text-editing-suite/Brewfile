@@ -1,3 +1,5 @@
+cask_args force: true
+
 cask "libreoffice"
 
 mas "Keynote", id: 409183694

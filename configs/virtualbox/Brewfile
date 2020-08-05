@@ -1,3 +1,5 @@
+cask_args force: true
+
 cask "vagrant"
 cask "virtualbox"
 cask "virtualbox-extension-pack"

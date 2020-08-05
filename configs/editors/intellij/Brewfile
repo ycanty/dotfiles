@@ -1,3 +1,5 @@
+cask_args force: true
+
 cask "intellij-idea"
 
 # Free edition

@@ -3,6 +3,8 @@ tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/services"
 
+cask_args force: true
+
 # required by dotfiles installation/setup tools
 brew "ansible"
 brew "mas"

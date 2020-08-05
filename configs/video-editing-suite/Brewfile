@@ -1,3 +1,5 @@
+cask_args force: true
+
 brew "handbrake"
 cask "handbrake"
 brew "ffmpeg"

@@ -1,9 +1,11 @@
+cask_args force: true
+
 brew "terraform"
 brew "terraform_landscape"
 brew "terragrunt"
 
 brew "awscli"
 
-brew "powershell"
+cask "rectangle"
 
-brew "rectangle"
+cask "powershell"

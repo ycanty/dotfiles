@@ -1,2 +1,4 @@
+cask_args force: true
+
 cask "adobe-digital-editions"
 cask "calibre"
