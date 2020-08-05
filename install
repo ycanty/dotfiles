@@ -29,6 +29,12 @@ function discover_plugins() {
     echo ${plugins}
 }
 
+if [[ $# -eq 0 ]]
+then
+  print_usage
+  exit 0
+fi
+
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
