@@ -7,6 +7,10 @@ tap "homebrew/services"
 brew "ansible"
 brew "mas"
 
+# required by many utilities (e.g. plantuml IDE plugins, etc)
+brew "graphviz"
+brew "xdot"
+
 # terminal enhancements
 cask "iterm2"
 
