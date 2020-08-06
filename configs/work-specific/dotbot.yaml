@@ -6,6 +6,7 @@
     ~/.gitconfig.extra:
       path: gitconfig.extra
       relink: true
+    ~/.zsh/profiles/work-specific.zsh: work-specific.zsh
 
 - brewfile:
     - "Brewfile"
