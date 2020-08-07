@@ -1,0 +1,3 @@
+cask_args force: true
+
+cask "iterm2"

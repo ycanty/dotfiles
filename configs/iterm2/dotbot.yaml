@@ -1,0 +1,9 @@
+- brewfile:
+    - "Brewfile"
+
+# Not linking any files as iterm2 just destroys the links
+# and replaces them with its own files.
+
+# In iterm2 Preferences:
+# General/Preferences: point to this folder.  After prefs changes, click "Save current settings to folder"
+# Profiles: Use Other Actions... to import/export the Profiles.json file
