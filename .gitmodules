@@ -7,6 +7,3 @@
 [submodule "dotbot-golang"]
 	path = plugins/dotbot-golang
 	url = https://github.com/delicb/dotbot-golang
-[submodule "dotbot-vscode"]
-	path = plugins/dotbot-vscode
-	url = https://github.com/hujianxin/dotbot-vscode
