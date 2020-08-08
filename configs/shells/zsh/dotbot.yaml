@@ -12,6 +12,11 @@
 - link:
     ~/.zshrc: zshrc
 
+- shell:
+    - command: antibody bundle < plugins.txt > ~/.zsh/plugins.zsh
+      stdout: true
+      stderr: true
+      
 # Changing shell: already done in ansible script.
 # Note the way to query directory service to reliably get the current default shell.
 # Because SHELL env. var. is set to the current shell, not necessarily the default one.

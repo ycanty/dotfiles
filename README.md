@@ -59,6 +59,8 @@ install   # the main install script
 
 The following provided me the inspiration for this project:
 
+* https://github.com/unixorn/awesome-zsh-plugins
+* https://www.viget.com/articles/zsh-config-productivity-plugins-for-mac-oss-default-shell/
 * https://www.twilio.com/blog/using-dotfiles-productivity-bootstrap-systems
 * https://driesvints.com/blog/getting-started-with-dotfiles/
 * https://frkl.io/blog/managing-dotfiles/

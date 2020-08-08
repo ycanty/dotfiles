@@ -1,0 +1,11 @@
+zsh-users/zsh-completions
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-syntax-highlighting
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+
+# ohmyzsh/ohmyzsh path:plugins/gitignore
+# ohmyzsh/ohmyzsh path:plugins/golang
+# ohmyzsh/ohmyzsh path:plugins/kubectl
+# ohmyzsh/ohmyzsh path:plugins/mvn
+# ohmyzsh/ohmyzsh path:plugins/spring
+# ohmyzsh/ohmyzsh path:plugins/vagrant

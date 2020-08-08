@@ -16,18 +16,18 @@
       become: yes
       become_user: "root"
 
-    - name: Download oh-my-zsh installation script
-      get_url:
-        url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-        dest: /usr/local/bin/zsh_install.sh
-        mode: ugo+x
-      become: yes
-      become_user: "root"
+    # - name: Download oh-my-zsh installation script
+    #   get_url:
+    #     url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    #     dest: /usr/local/bin/zsh_install.sh
+    #     mode: ugo+x
+    #   become: yes
+    #   become_user: "root"
 
-    - name: Run oh-my-zsh installer
-      shell: zsh_install.sh "" --unattended
-      args:
-        creates: "{{ lookup('env', 'HOME') }}/.oh-my-zsh"
+    # - name: Run oh-my-zsh installer
+    #   shell: zsh_install.sh "" --unattended
+    #   args:
+    #     creates: "{{ lookup('env', 'HOME') }}/.oh-my-zsh"
 
     - name: Determine brew prefix path
       shell: brew --prefix
