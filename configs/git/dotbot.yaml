@@ -5,4 +5,6 @@
     ~/.zsh/profiles/git.zsh: git.zsh
     ~/.gitconfig: gitconfig
     ~/bin/git-bin: bin
-    ~/.gitconfig.extra: gitconfig.extra
+    ~/.gitconfig.extra:
+        path: gitconfig.extra
+        relink: true
