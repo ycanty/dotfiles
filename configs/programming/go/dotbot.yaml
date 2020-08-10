@@ -4,8 +4,11 @@
 - link:
     ~/.zsh/profiles/go.zsh: go.zsh
 
+- go:
+    - github.com/spf13/cobra/cobra
+
 # To install extra go tools:
-# - go
+# - go:
 #   - github.com/delicb/cliware
 #   -
 #     package: github.com/delicb/cliware-middlewares
