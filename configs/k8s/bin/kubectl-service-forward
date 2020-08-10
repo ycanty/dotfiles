@@ -1,0 +1,8 @@
+#!/bin/bash
+
+SVC=$1
+
+SVC_PORT=$(kubectl get svc ${SVC} --output=jsonpath="{.spec.ports[0].targetPort}")
+
+LOCAL_PORT=${2:-${SVC_PORT}}
+kubectl port-forward service/${SVC} ${LOCAL_PORT}:${SVC_PORT}
