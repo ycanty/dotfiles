@@ -2,16 +2,16 @@
     ~/:
         force: true
 
+- shell:
+    - command: antibody bundle < plugins.txt > ~/.zsh/work-plugins.zsh
+      stdout: true
+      stderr: true
+
 - link:
     ~/.gitconfig.extra:
       path: gitconfig.extra
       relink: true
     ~/.zsh/profiles/work-specific.zsh: work-specific.zsh
-
-- shell:
-    - command: antibody bundle < plugins.txt > ~/.zsh/work-plugins.zsh
-      stdout: true
-      stderr: true
 
 - brewfile:
     - "Brewfile"
