@@ -12,6 +12,10 @@
       path: gitconfig.extra
       relink: true
     ~/.zsh/profiles/work-specific.zsh: work-specific.zsh
+    ~/.config/starship.toml:
+      path: starship.toml
+      relink: true
+
 
 - brewfile:
     - "Brewfile"
