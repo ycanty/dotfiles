@@ -4,6 +4,9 @@ export LANG=en_US.UTF-8
 # Command tweaks
 export LESS='-R -X -F' # configure-less
 
+# Aliases
+alias ls='ls -FG'
+
 # Enable Completion
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
