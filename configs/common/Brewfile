@@ -58,6 +58,10 @@ brew "xml-coreutils"
 brew "xmlstarlet"
 brew "libxml2"
 
+# text/json
+tap "itchyny/tap"
+brew "gojq"
+
 # browsers
 cask "google-chrome"
 cask "brave-browser"
