@@ -5,6 +5,7 @@ brew "terraform_landscape"
 brew "terragrunt"
 
 brew "awscli"
+brew "docker-credential-helper-ecr"
 
 cask "rectangle"
 

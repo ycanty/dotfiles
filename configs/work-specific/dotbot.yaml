@@ -16,6 +16,13 @@
       path: starship.toml
       relink: true
 
+# AWS docker credential helper: https://github.com/awslabs/amazon-ecr-credential-helper
+# Setting up docker-credential-ecr-login doesn't work with MFA enabled.
+# https://github.com/awslabs/amazon-ecr-credential-helper/issues/180
+#
+# Also: Docker desktop removes the link on restart
+#    ~/.docker/config.json: docker_config.json
+
 
 - brewfile:
     - "Brewfile"

@@ -1,0 +1,11 @@
+{
+  "credHelpers": {
+    "458176070654.dkr.ecr.us-east-1.amazonaws.com": "ecr-login"
+  },
+  "HttpHeaders": {
+    "User-Agent": "Docker-Client/19.03.12 (darwin)"
+  },
+  "credsStore": "desktop",
+  "experimental": "disabled",
+  "stackOrchestrator": "swarm"
+}
