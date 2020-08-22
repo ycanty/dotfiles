@@ -5,7 +5,7 @@ export LANG=en_US.UTF-8
 export LESS='-R -X -F' # configure-less
 
 # Aliases
-alias ls='ls -FG'
+alias ls='ls -LFG'
 
 ## History file configuration
 [ -z "$HISTFILE" ] && export HISTFILE="$HOME/.zsh_history"
