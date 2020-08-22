@@ -1,10 +1,6 @@
 - brewfile:
     - "Brewfile"
 
-- link:
-    ~/.zsh/profiles/k8s.zsh: k8s.zsh
-    ~/.kube/setup-kubeconfig.sh: setup-kubeconfig.sh
-
 # TODO Create duckdns config from lastpass
 # ~/.duckdns
 # DOMAIN=
