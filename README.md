@@ -54,6 +54,7 @@ install   # the main install script
 * setup duckdns config (get token using lpass)
 * setup .ssh keys (get private key using lpass)
 * Setup macos defaults (e.g. https://www.defaults-write.com)
+  or https://github.com/mathiasbynens/dotfiles/blob/main/.macos
 
 ## References
 
@@ -81,3 +82,4 @@ https://starship.rs
 https://asdf-vm.com/#/
 https://www.defaults-write.com
 https://github.com/lastpass/lastpass-cli
+https://github.com/pastjean/osx-sync-env
