@@ -6,8 +6,9 @@ brew "terragrunt"
 
 brew "awscli"
 brew "docker-credential-helper-ecr"
-
 brew "dos2unix"
+
+brew "hugo"
 
 cask "rectangle"
 
