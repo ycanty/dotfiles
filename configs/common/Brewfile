@@ -61,6 +61,8 @@ brew "libxml2"
 # text/json
 tap "itchyny/tap"
 brew "gojq"
+brew "jq"
+brew "yq"
 
 # browsers
 cask "google-chrome"

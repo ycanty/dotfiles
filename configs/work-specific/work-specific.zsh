@@ -51,3 +51,33 @@ function aws-assume-role() {
       --token-code "${mfa}" | \
     gojq '.Credentials | {"AWS_ACCESS_KEY_ID": .AccessKeyId, "AWS_SECRET_ACCESS_KEY": .SecretAccessKey, "AWS_SESSION_TOKEN": .SessionToken}'
 }
+
+# Outputs environment variables and their secret values fetched from AWS secretsmanager.
+# Usage:
+# 1) source in the current environment with: eval "$(set-test-env)"
+# 2) output to a file with set-test-env > test-env.sh
+function set-test-env() {
+  cat <<-EOF
+   BITBUCKET_USERNAME="$(aws-sm-get-yaml-value credentials-sync/bitbucket bitbucket-rd.username)"
+   BITBUCKET_PASSWORD="$(aws-sm-get-yaml-value credentials-sync/bitbucket bitbucket-rd.password)"
+   JENKINS_JIRA_ACCESS_TOKEN="$(aws-sm-get-yaml-value credentials-sync/jira svc_jira_access_token.secret)"
+   JENKINS_JIRA_SECRET_ACCESS_TOKEN="$(aws-sm-get-yaml-value credentials-sync/jira svc_jira_secret_access_token.secret)"
+   JENKINS_JIRA_CONSUMER_KEY="$(aws-sm-get-yaml-value credentials-sync/jira svc_jira_crawl_consumer_key.secret)"
+   JENKINS_JIRA_KEY_CERT="$(aws-sm-get-yaml-value credentials-sync/jira svc_jira_crawl_key_cert.secret)"
+
+   export BITBUCKET_USERNAME BwITBUCKET_PASSWORD \
+    JENKINS_JIRA_ACCESS_TOKEN JENKINS_JIRA_SECRET_ACCESS_TOKEN \
+    JENKINS_JIRA_CONSUMER_KEY JENKINS_JIRA_KEY_CERT
+EOF
+}
+
+# Get a secret's value from AWS secretsmanager, where the secret's value is
+# a yaml.
+function aws-sm-get-yaml-value() {
+  local secret_id
+  local secret_path
+  secret_id=$1
+  secret_path=$2
+
+  aws secretsmanager get-secret-value --secret-id "${secret_id}" | jq -r .SecretString | yq r - "${secret_path}"
+}
