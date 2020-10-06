@@ -58,12 +58,12 @@ function aws-assume-role() {
 # 2) output to a file with set-test-env > test-env.sh
 function set-test-env() {
   cat <<-EOF
-   BITBUCKET_USERNAME="$(aws-sm-get-yaml-value credentials-sync/bitbucket bitbucket-rd.username)"
-   BITBUCKET_PASSWORD="$(aws-sm-get-yaml-value credentials-sync/bitbucket bitbucket-rd.password)"
-   JENKINS_JIRA_ACCESS_TOKEN="$(aws-sm-get-yaml-value credentials-sync/jira svc_jira_access_token.secret)"
-   JENKINS_JIRA_SECRET_ACCESS_TOKEN="$(aws-sm-get-yaml-value credentials-sync/jira svc_jira_secret_access_token.secret)"
-   JENKINS_JIRA_CONSUMER_KEY="$(aws-sm-get-yaml-value credentials-sync/jira svc_jira_crawl_consumer_key.secret)"
-   JENKINS_JIRA_KEY_CERT="$(aws-sm-get-yaml-value credentials-sync/jira svc_jira_crawl_key_cert.secret)"
+   BITBUCKET_USERNAME=$(aws-sm-get-yaml-value credentials-sync/bitbucket bitbucket-rd.username)
+   BITBUCKET_PASSWORD=$(aws-sm-get-yaml-value credentials-sync/bitbucket bitbucket-rd.password)
+   JENKINS_JIRA_ACCESS_TOKEN=$(aws-sm-get-yaml-value credentials-sync/jira svc_jira_access_token.secret)
+   JENKINS_JIRA_SECRET_ACCESS_TOKEN=$(aws-sm-get-yaml-value credentials-sync/jira svc_jira_secret_access_token.secret)
+   JENKINS_JIRA_CONSUMER_KEY=$(aws-sm-get-yaml-value credentials-sync/jira svc_jira_crawl_consumer_key.secret)
+   JENKINS_JIRA_KEY_CERT=$(aws-sm-get-yaml-value credentials-sync/jira svc_jira_crawl_key_cert.secret)
 
    export BITBUCKET_USERNAME BITBUCKET_PASSWORD \
     JENKINS_JIRA_ACCESS_TOKEN JENKINS_JIRA_SECRET_ACCESS_TOKEN \
@@ -79,5 +79,5 @@ function aws-sm-get-yaml-value() {
   secret_id=$1
   secret_path=$2
 
-  aws secretsmanager get-secret-value --secret-id "${secret_id}" | jq -r .SecretString | yq r - "${secret_path}"
+  aws secretsmanager get-secret-value --secret-id "${secret_id}" | jq -r .SecretString | yq -j r - "${secret_path}"
 }
