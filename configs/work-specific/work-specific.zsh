@@ -65,7 +65,7 @@ function set-test-env() {
    JENKINS_JIRA_CONSUMER_KEY="$(aws-sm-get-yaml-value credentials-sync/jira svc_jira_crawl_consumer_key.secret)"
    JENKINS_JIRA_KEY_CERT="$(aws-sm-get-yaml-value credentials-sync/jira svc_jira_crawl_key_cert.secret)"
 
-   export BITBUCKET_USERNAME BwITBUCKET_PASSWORD \
+   export BITBUCKET_USERNAME BITBUCKET_PASSWORD \
     JENKINS_JIRA_ACCESS_TOKEN JENKINS_JIRA_SECRET_ACCESS_TOKEN \
     JENKINS_JIRA_CONSUMER_KEY JENKINS_JIRA_KEY_CERT
 EOF
