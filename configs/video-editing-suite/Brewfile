@@ -3,7 +3,6 @@ cask_args force: true
 brew "handbrake"
 cask "handbrake"
 brew "ffmpeg"
-brew "youtube-dl"
 cask "subler"
 
 # To transfer videos from the Oculus Quest
