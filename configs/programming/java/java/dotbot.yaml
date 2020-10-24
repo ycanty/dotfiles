@@ -1,2 +1,5 @@
 - brewfile:
     - "Brewfile"
+
+- link:
+    ~/.zsh/profiles/java.zsh: java.zsh
