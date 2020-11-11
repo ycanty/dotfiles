@@ -7,6 +7,11 @@
       stdout: true
       stderr: true
 
+- shell:
+    - command: brew services start postgresql
+      stdout: true
+      stderr: true
+
 - link:
     ~/.gitconfig.extra:
       path: gitconfig.extra

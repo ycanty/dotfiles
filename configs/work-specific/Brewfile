@@ -10,6 +10,8 @@ brew "dos2unix"
 
 brew "hugo"
 
+brew "postgresql"
+
 cask "rectangle"
 
 cask "powershell"
