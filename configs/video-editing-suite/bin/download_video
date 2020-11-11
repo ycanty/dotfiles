@@ -1,4 +1,0 @@
-#!/bin/bash
-
-youtube-dl -U
-youtube-dl -i --recode-video mp4 --restrict-filenames -o "%(title)s.%(ext)s" "$@"
