@@ -23,25 +23,35 @@ function aws-docker-login() {
 }
 
 function aws-assume-role() {
-  local role_arn
-  local role_name
-  local max_session_duration
-  local mfa_serial
-  local mfa
-
   if [[ -z "${AWS_PROFILE}" ]]
   then
     echo "No active AWS profile" 1>&2
     return 1
   fi
 
+  echo -n 'Enter AWS MFA code: '
+  read -r mfa
+  echo
+  unset AWS_ACCESS_KEY_ID
+  unset AWS_SECRET_ACCESS_KEY
+  unset AWS_SESSION_TOKEN
+  aws-assume-role-vars "${mfa}" > ~/.aws/token.json
+  gojq -r '. | "export AWS_ACCESS_KEY_ID=\(.AWS_ACCESS_KEY_ID)\nexport AWS_SECRET_ACCESS_KEY=\(.AWS_SECRET_ACCESS_KEY)\nexport AWS_SESSION_TOKEN=\(.AWS_SESSION_TOKEN)"' < ~/.aws/token.json > ~/.aws/token.sh
+  source ~/.aws/token.sh
+}
+
+function aws-assume-role-vars() {
+  local role_arn
+  local role_name
+  local max_session_duration
+  local mfa_serial
+  local mfa=$1
+
   role_arn=$(aws configure get role_arn)
   role_name=$(echo "${role_arn}" | sed -Ee 's/^.*\/(.*)$/\1/')
   max_session_duration=$(aws iam get-role --role-name "${role_name}" | gojq .Role.MaxSessionDuration)
   mfa_serial=$(aws configure get mfa_serial)
-  echo -n 'Enter AWS MFA code: '
-  read -r -s mfa
-  echo
+
   aws sts assume-role \
       --profile uam \
       --role-arn "${role_arn}" \
