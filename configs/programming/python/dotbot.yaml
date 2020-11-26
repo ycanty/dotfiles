@@ -3,3 +3,8 @@
 
 - link:
     ~/.zsh/profiles/python.zsh: python.zsh
+
+- shell:
+    - command: pip install tox-pyenv
+      stdout: true
+      stderr: true
