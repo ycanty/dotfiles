@@ -12,6 +12,8 @@ brew "hugo"
 
 brew "postgresql"
 
+brew "poetry"
+
 cask "rectangle"
 
 cask "powershell"

@@ -2,6 +2,10 @@
     ~/:
         force: true
 
+- create:
+    - ~/.zfunc
+    - ~/.zsh
+
 - shell:
     - command: antibody bundle < plugins.txt > ~/.zsh/work-plugins.zsh
       stdout: true
@@ -31,3 +35,6 @@
 
 - brewfile:
     - "Brewfile"
+
+- shell:
+    - command: poetry completions zsh > ~/.zfunc/_poetry

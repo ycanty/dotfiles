@@ -3,6 +3,7 @@
 
 - create:
     - ~/.zsh/profiles
+    - ~/.zfunc
 
 - shell:
     - command: ${BASEDIR}/ansible/run-ansible.sh
