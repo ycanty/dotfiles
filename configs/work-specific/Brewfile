@@ -9,7 +9,7 @@ brew "docker-credential-helper-ecr"
 brew "dos2unix"
 
 brew "hugo"
-
+brew "drawio"
 brew "postgresql"
 
 brew "poetry"
