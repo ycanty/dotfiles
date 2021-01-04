@@ -17,3 +17,5 @@ brew "poetry"
 cask "rectangle"
 
 cask "powershell"
+
+cask "microsoft-teams"
