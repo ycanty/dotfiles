@@ -2,6 +2,8 @@ source ~/.zsh/work-plugins.zsh
 
 test -f ~/.aws/token.sh && source ~/.aws/token.sh
 
+export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+
 # Required by tools that use the AWS SDK so they can load the config from ~/.aws/config
 # See: https://github.com/awslabs/amazon-ecr-credential-helper/issues/63
 export AWS_SDK_LOAD_CONFIG=true

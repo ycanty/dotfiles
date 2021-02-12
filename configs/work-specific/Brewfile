@@ -9,8 +9,7 @@ brew "docker-credential-helper-ecr"
 brew "dos2unix"
 
 brew "hugo"
-brew "drawio"
-brew "postgresql"
+brew "postgresql@11"
 
 brew "poetry"
 
@@ -19,3 +18,5 @@ cask "rectangle"
 cask "powershell"
 
 cask "microsoft-teams"
+
+cask "drawio"
