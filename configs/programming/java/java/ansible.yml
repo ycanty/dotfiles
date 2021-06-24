@@ -1,0 +1,9 @@
+- hosts: localhost
+  tasks:
+    - name: Make OpenJDK visible to the system
+      file: 
+        src: /usr/local/opt/openjdk/libexec/openjdk.jdk
+        dest: /Library/Java/JavaVirtualMachines/openjdk.jdk
+        state: link
+      become: yes
+      become_user: "root"

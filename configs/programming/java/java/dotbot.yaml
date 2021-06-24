@@ -3,3 +3,8 @@
 
 - link:
     ~/.zsh/profiles/java.zsh: java.zsh
+
+- shell:
+    - command: ${BASEDIR}/ansible/run-ansible.sh
+      stdout: true
+      stderr: true
