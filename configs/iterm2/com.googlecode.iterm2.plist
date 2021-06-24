@@ -99,11 +99,11 @@
 		</array>
 	</dict>
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
-	<string>496 503 799 448 0 0 1792 1097 </string>
+	<string>475 486 841 470 0 0 1792 1097 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>586 545 620 392 0 0 1792 1097 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>234 124 1450 950 0 0 1792 1097 </string>
+	<string>17 104 1450 927 0 0 1792 1097 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>502 175 1290 827 0 0 1792 1097 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1374,7 +1374,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>600649525.63614905</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>33</integer>
+	<integer>40</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2091,6 +2091,11 @@
 			</dict>
 		</array>
 	</dict>
+	<key>NoSyncSavePanelSavedSettings_SaveProfile</key>
+	<dict>
+		<key>Initial Directory</key>
+		<string>/Users/yves/dotfiles/configs/iterm2</string>
+	</dict>
 	<key>NoSyncTipOfTheDayEligibilityBeganTime</key>
 	<real>598892716.52059603</real>
 	<key>NoSyncTipsDisabled</key>
@@ -2153,7 +2158,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-08-07T00:41:08Z</date>
+	<date>2020-09-15T21:54:47Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
@@ -2170,6 +2175,8 @@
 	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>iTerm Version</key>
 	<string>3.3.12</string>
 </dict>

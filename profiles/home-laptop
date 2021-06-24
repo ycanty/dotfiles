@@ -6,6 +6,7 @@ docker
 k8s
 programming/go
 programming/python
+programming/java
 search-tools/fzf
 git
 image-editing-suite
