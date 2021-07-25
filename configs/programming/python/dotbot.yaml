@@ -3,6 +3,7 @@
 
 - link:
     ~/.zsh/profiles/python.zsh: python.zsh
+    ~/.zsh/init_profiles/python.zsh: python_profile.zsh
 
 # - shell:
 #     - command: pip install tox-pyenv

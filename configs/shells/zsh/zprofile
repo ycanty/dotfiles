@@ -1,0 +1,2 @@
+# Source all files in init_profiles dir
+[[ -d ~/.zsh/init_profiles ]] && for P in ~/.zsh/init_profiles/*.zsh; do source $P; done

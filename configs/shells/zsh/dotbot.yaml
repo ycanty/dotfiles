@@ -3,6 +3,7 @@
 
 - create:
     - ~/.zsh/profiles
+    - ~/.zsh/init_profiles
     - ~/.zfunc
 
 - shell:
@@ -12,6 +13,7 @@
 
 - link:
     ~/.zshrc: zshrc
+    ~/.zprofile: zprofile
 
 - shell:
     - command: antibody bundle < plugins.txt > ~/.zsh/plugins.zsh

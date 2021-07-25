@@ -5,6 +5,7 @@
 - create:
     - ~/bin
     - ~/.zsh/profiles
+    - ~/.zsh/init_profiles
 
 - link:
     ~/.zsh/profiles/common.zsh: common.zsh
