@@ -18,6 +18,16 @@ cd ~
 git clone --recursive https://github.com/ycanty/dotfiles
 ```
 
+dotbot and its plugins run better with python3.  Make sure
+python3 is the default.
+
+```bash
+./install -c programming/python
+pyenv install 3.10.0
+pyenv global 3.10.0
+pyenv rehash
+```
+
 ## Upgrade
 
 ```bash
