@@ -15,10 +15,10 @@
     ~/.zshrc: zshrc
     ~/.zprofile: zprofile
 
-- shell:
-    - command: antibody bundle < plugins.txt > ~/.zsh/plugins.zsh
-      stdout: true
-      stderr: true
+- git:
+    '~/.zgenom':
+        url: 'https://github.com/jandamm/zgenom.git'
+        description: 'zgenom plugin manager'
       
 # Changing shell: already done in ansible script.
 # Note the way to query directory service to reliably get the current default shell.

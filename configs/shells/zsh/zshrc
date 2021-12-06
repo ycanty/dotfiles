@@ -20,15 +20,47 @@ setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
 setopt share_history          # share command history data
 
+# zgen plugin manager setup
+export ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
+
+# load zgenom
+source "${HOME}/.zgenom/zgenom.zsh"
+
+# Check for plugin and zgenom updates every 7 days
+# This does not increase the startup time.
+zgenom autoupdate
+
+# if the init script doesn't exist
+if ! zgenom saved; then
+    echo "Creating a zgenom save"
+
+    zgenom ohmyzsh
+
+    # plugins
+    zgenom ohmyzsh plugins/colored-man-pages
+    zgenom load zsh-users/zsh-history-substring-search
+    zgenom load zsh-users/zsh-syntax-highlighting
+
+    # completions
+    zgenom load zsh-users/zsh-completions src
+
+    # theme
+    # zgenom oh-my-zsh themes/arrow
+
+    # save all to init script
+    zgenom save
+
+    # compile all zsh source scripts
+    zgenom compile "$HOME/.zshrc"
+    [[ -d ~/.zsh/profiles ]] && for P in ~/.zsh/profiles/*.zsh; do zgenom compile "$P"; done
+fi
+
 # Setup my own directory for completions.  fpath must be changed before calling compinit
 fpath+=~/.zfunc
 
 # Enable Completion
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
-
-# Load zsh plugins (defined by running 'antibody bundle')
-[[ -f ~/.zsh/plugins.zsh ]] && source ~/.zsh/plugins.zsh
 
 # Source all files in profiles dir
 [[ -d ~/.zsh/profiles ]] && for P in ~/.zsh/profiles/*.zsh; do source $P; done
