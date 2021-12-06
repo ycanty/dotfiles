@@ -20,15 +20,6 @@ EOF
     ls -1 ${PROFILES_DIR}
 }
 
-function discover_plugins() {
-    local -n plugins=$1
-    while read -r dir
-    do
-        plugins+=("--plugin-dir=${PLUGINS_DIR}/${dir}")
-    done <<< "$(ls ${PLUGINS_DIR})"
-    declare -p plugins
-}
-
 if [[ $# -eq 0 ]]
 then
   print_usage
@@ -83,7 +74,10 @@ then
 fi
 
 plugin_opts=()
-discover_plugins plugin_opts
+while read -r dir
+do
+    plugin_opts+=("--plugin-dir=${PLUGINS_DIR}/${dir}")
+done <<< "$(ls ${PLUGINS_DIR})"
 
 echo -n "root password:"
 read -r -s PW
