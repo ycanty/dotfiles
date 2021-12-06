@@ -7,3 +7,6 @@
 [submodule "dotbot-golang"]
 	path = plugins/dotbot-golang
 	url = https://github.com/delicb/dotbot-golang
+[submodule "plugins/dotbot-git"]
+	path = plugins/dotbot-git
+	url = https://github.com/DrDynamic/dotbot-git.git
