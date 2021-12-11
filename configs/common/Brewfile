@@ -18,8 +18,8 @@ brew "plantuml"
 cask "iterm2"
 
 # password management
-brew "lastpass-cli"
-cask "lastpass"
+brew "bitwarden-cli"
+cask "bitwarden"
 
 # File search
 brew "fd"
