@@ -19,7 +19,9 @@ cask "iterm2"
 
 # password management
 brew "bitwarden-cli"
-cask "bitwarden"
+# Install from app store instead for browser integration
+# cask "bitwarden"
+mas "Bitwarden", id: 1352778147
 
 # File search
 brew "fd"
