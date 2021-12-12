@@ -3,8 +3,6 @@ shells/zsh
 starship
 iterm2
 docker
-#k8s
-#programming/go
 programming/python
 programming/java/java
 search-tools/fzf
