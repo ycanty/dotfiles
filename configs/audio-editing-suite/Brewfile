@@ -2,4 +2,4 @@ cask_args force: true
 
 cask "musicbrainz-picard"
 
-mas "GarageBand", id: 682658836
+# mas "GarageBand", id: 682658836
