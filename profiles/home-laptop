@@ -3,6 +3,7 @@ shells/zsh
 starship
 iterm2
 docker
+podman
 programming/python
 programming/java/java
 search-tools/fzf

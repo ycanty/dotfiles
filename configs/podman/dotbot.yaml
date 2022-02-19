@@ -1,0 +1,10 @@
+- brewfile:
+    - "Brewfile"
+
+- link:
+   ~/.zsh/profiles/podman.zsh: podman.zsh
+
+- shell:
+    - command: pip3 install podman-compose
+      stdout: true
+      stderr: true
