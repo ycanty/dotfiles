@@ -13,6 +13,9 @@ Additions over vanilla dotbot:
 
 ## Installation
 
+Install [homebrew](https://brew.sh)
+Install required tools: ```brew install ansible git```
+
 ```bash
 cd ~
 git clone --recursive https://github.com/ycanty/dotfiles
@@ -82,13 +85,14 @@ The following provided me the inspiration for this project:
 
 ### Other Tools
 
-<https://yadm.io>
-<https://www.gnu.org/software/stow/>
-<https://dotfiles.github.io>
-<https://github.com/technicalpickles/homesick>
-<https://github.com/thoughtbot/rcm>
-<https://starship.rs>
-<https://asdf-vm.com/#/>
-<https://www.defaults-write.com>
-<https://github.com/lastpass/lastpass-cli>
-<https://github.com/pastjean/osx-sync-env>
+* <https://github.com/twpayne/chezmoi>
+* <https://yadm.io>
+* <https://www.gnu.org/software/stow/>
+* <https://dotfiles.github.io>
+* <https://github.com/technicalpickles/homesick>
+* <https://github.com/thoughtbot/rcm>
+* <https://starship.rs>
+* <https://asdf-vm.com/#/>
+* <https://www.defaults-write.com>
+* <https://github.com/lastpass/lastpass-cli>
+* <https://github.com/pastjean/osx-sync-env>
