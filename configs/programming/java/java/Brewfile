@@ -4,8 +4,8 @@ cask_args force: true
 
 brew "java"
 
-brew "gradle"
-cask "qlgradle"
+# brew "gradle"
+# cask "qlgradle"
 
 brew "maven"
 brew "maven-completion"

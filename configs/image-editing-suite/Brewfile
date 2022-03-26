@@ -3,7 +3,7 @@ cask_args force: true
 brew "exiftool"
 cask "adobe-dng-converter"
 cask "geotag"
-cask "xnviewmp"
+# cask "xnviewmp"
 
 # To browse the Apple Photos DB
 cask "db-browser-for-sqlite"
