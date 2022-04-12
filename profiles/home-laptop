@@ -2,7 +2,7 @@ common
 shells/zsh
 starship
 iterm2
-docker
+#docker
 podman
 programming/python
 programming/java/java
